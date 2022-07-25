@@ -1,92 +1,55 @@
 <!--
-title: 'AWS Simple HTTP Endpoint example in NodeJS'
-description: 'This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.'
+title: 'How to setup Local dynamodb'
+description: 'This template demonstrates how to create a table in local dynamodb with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.'
 layout: Doc
 framework: v3
 platform: AWS
 language: nodeJS
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
+authorName: 'Srushti Shetty'
 -->
 
-# Serverless Framework Node HTTP API on AWS
+# Demo on first project with local DynamoDB
 
-This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
-
-This template does not include any kind of persistence (database). For more advanced examples, check out the [serverless/examples repository](https://github.com/serverless/examples/) which includes Typescript, Mongo, DynamoDB and other examples.
+This template demonstrates how to create a table in local dynamodb with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
 
 ## Usage
-
-### Deployment
+Install all the dependencies in package.json 
 
 ```
-$ serverless deploy
+$ npm install
 ```
 
-After deploying, you should see output similar to:
+After installing the dependencies, run the following command to start a local server:
 
-```bash
-Deploying aws-node-http-api-project to stage dev (us-east-1)
-
-✔ Service deployed to stack aws-node-http-api-project-dev (152s)
-
-endpoint: GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/
-functions:
-  hello: aws-node-http-api-project-dev-hello (1.9 kB)
 ```
+$ serverless offline
+```
+You can see the list of available endpoints on http://localhost:3000/ and also use http://localhost:3000/ a base endpoint
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
+![image](https://user-images.githubusercontent.com/90671944/180708961-adeddb38-d825-489a-a63d-ca2610a2380b.png)
 
 ### Invocation
 
-After successful deployment, you can call the created application via HTTP:
+After this, you can call the created application via HTTP:
 
 ```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
+http://localhost:3000/dev/createTable
 ```
-
-Which should result in response similar to the following (removed `input` content for brevity):
-
-```json
-{
-  "message": "Go Serverless v2.0! Your function executed successfully!",
-  "input": {
-    ...
-  }
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
+This endpoint creates table in local dynamodb for the first time. Hit this endpoint using postman only once.
 
 ```bash
-serverless invoke local --function hello
+http://localhost:3000/dev/newdevices
 ```
-
-Which should result in response similar to the following:
-
-```
-{
-  "statusCode": 200,
-  "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
-
-
-Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
+This endpoint creates item in table.
+Send devicetype as dt and partnumber as pt in the body.
+![image](https://user-images.githubusercontent.com/90671944/180710012-5603aa9c-2c13-4729-aeed-7ebc8c2929df.png)
 
 ```bash
-serverless plugin install -n serverless-offline
+http://localhost:3000/dev/newdevice
 ```
+This endpoint gets particular item list and count of the itmes according to the condition provided by the user from table.
+Send devicetype as dt and partnumber as pt in the body of the items which you want the total count in the table.
 
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
 
-After installation, you can start local emulation with:
 
-```
-serverless offline
-```
 
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
