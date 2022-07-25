@@ -35,25 +35,25 @@ After this, you can call the created application via HTTP:
 ```bash
 http://localhost:3000/dev/createTable
 ```
-This endpoint creates table in local dynamodb for the first time. Hit this endpoint using postman only once.
+1.  This endpoint creates table in local dynamodb for the first time. Hit this endpoint using postman only once.
 
 
 
 ```bash
 http://localhost:3000/dev/newdevices
 ```
-This endpoint creates item in table.
-Send devicetype as dt and partnumber as pt in the body.
-![image](https://user-images.githubusercontent.com/90671944/180710012-5603aa9c-2c13-4729-aeed-7ebc8c2929df.png)
+2.  This endpoint creates item in table.
+    Send devicetype as dt and partnumber as pt in the body.
+    ![image](https://user-images.githubusercontent.com/90671944/180710012-5603aa9c-2c13-4729-aeed-7ebc8c2929df.png)
 
 
 
 ```bash
 http://localhost:3000/dev/newdevice
 ```
-This endpoint gets particular item list and count of the itmes according to the condition provided by the user from table.
-Send devicetype as dt and partnumber as pt in the body of the items which you want the total count in the table.
-![image](https://user-images.githubusercontent.com/90671944/180711293-cdd4e157-d52e-4c7e-8e48-e2a05157c69c.png)
+3.  This endpoint gets particular item list and count of the itmes according to the condition provided by the user from table.
+    Send devicetype as dt and partnumber as pt in the body of the items which you want the total count in the table.
+    ![image](https://user-images.githubusercontent.com/90671944/180711293-cdd4e157-d52e-4c7e-8e48-e2a05157c69c.png)
 
 
 
