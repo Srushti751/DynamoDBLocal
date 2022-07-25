@@ -136,8 +136,8 @@ module.exports.localget = async (event) => {
 // Returns all items
 module.exports.list = async (event, context, callback) => {
   const params = {
-    TableName: "DevicesNew",
-    IndexName: "deviceIndex",
+    TableName: "TABB",
+    IndexName: "TABB-index",
 
     Select: "ALL_ATTRIBUTES",
   };
