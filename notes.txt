@@ -1,2 +1,0 @@
-to test lambda function on console ---> $ serverless invoke local --stage dev --aws-profile profieName -f functionName
-to get all user credentials ---> $ code ~/.aws/credentials
