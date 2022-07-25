@@ -146,8 +146,8 @@ module.exports.list = async (event, context, callback) => {
     .scan(params)
     .promise()
     .then((data) => {
-      let obj = { count: JSON.stringify(data) };
-      callback(null, { statusCode: 200, body: JSON.stringify(obj) });
+     
+      callback(null, { statusCode: 200, body: JSON.stringify(data) });
     })
     .catch((err) => {
       console.log(err);
