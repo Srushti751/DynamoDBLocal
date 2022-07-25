@@ -49,6 +49,8 @@ http://localhost:3000/dev/newdevice
 ```
 This endpoint gets particular item list and count of the itmes according to the condition provided by the user from table.
 Send devicetype as dt and partnumber as pt in the body of the items which you want the total count in the table.
+![image](https://user-images.githubusercontent.com/90671944/180711293-cdd4e157-d52e-4c7e-8e48-e2a05157c69c.png)
+
 
 
 
