@@ -1,0 +1,43 @@
+service: aws-node-http-api-project
+frameworkVersion: "3"
+
+custom:
+  serverless-offline:
+    ignoreJWTSignature: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-west-1
+
+functions:
+  localcreate:
+    handler: handler.localcreate
+    events:
+      - http:
+          path: newdevices
+          method: POST
+
+  localget:
+    handler: handler.localget
+    events:
+      - http:
+          path: newdevice
+          method: post
+
+  createTable:
+    handler: handler.createTable
+    events:
+      - http:
+          path: createTable
+          method: post
+
+  list:
+    handler: handler.list
+    events:
+      - http:
+          path: devices
+          method: post
+
+plugins:
+  - serverless-offline
