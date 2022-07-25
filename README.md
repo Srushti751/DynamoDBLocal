@@ -37,12 +37,16 @@ http://localhost:3000/dev/createTable
 ```
 This endpoint creates table in local dynamodb for the first time. Hit this endpoint using postman only once.
 
+
+
 ```bash
 http://localhost:3000/dev/newdevices
 ```
 This endpoint creates item in table.
 Send devicetype as dt and partnumber as pt in the body.
 ![image](https://user-images.githubusercontent.com/90671944/180710012-5603aa9c-2c13-4729-aeed-7ebc8c2929df.png)
+
+
 
 ```bash
 http://localhost:3000/dev/newdevice
